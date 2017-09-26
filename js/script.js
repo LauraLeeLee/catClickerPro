@@ -65,6 +65,24 @@ var octopus = {
     model.currentCat.count++;
     catView.render();
   }
+
+  //opens admin view
+  currentCatInfo: function() {
+    return model.currentCat;
+  },
+
+  //saves user input to model data
+  saveCatInfo: function(inputName, inputImg, inputCount) {
+    model.currentCat.name = inputName;
+    model.currentCat.img = inputImg;
+    model.currentCat.count = inputCount;
+  },
+
+  //hides admin view
+  cancelAdmin: function() {
+
+  },
+
 };
 
 //-----------View
