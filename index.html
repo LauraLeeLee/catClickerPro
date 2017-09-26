@@ -37,9 +37,12 @@
       <div class = "col-sm-12">
         <button type = "button" name = "button" id = "admin-btn">Admin</button>
         <form id = "admin-form" action = "index.html" method = "post">
-          Name: <input type = "text" name = "name" value = "" id = "admin-name">
-          ImgSrc/URL: <input type = "text" name = "imgSrcURL" value = "" id = "admin-img">
-          Count: <input type = "text" name = "count" value = "" id = "admin-count">
+          <label for="name"> Name</label>
+          <input type = "text" name = "name" value = "" id = "admin-name" class = "input-slot">
+          <label for="imgSrc">ImgSrc/URL</label>
+          <input type = "text" name = "imgSrcURL" value = "" id = "admin-img" class = "input-slot">
+          <label for="count">Count</label>
+          <input type = "text" name = "count" value = "" id = "admin-count" class = "input-slot">
           <button type = "button" name = "button" id = "admin-save">Save</button>
           <button type = "button" name = "button" id = "admin-cancel">Cancel</button>
         </form>
