@@ -49,6 +49,30 @@ li {
   margin: 10px;
 }
 
+button {
+  margin-bottom: 30px;
+  background-color: #ffff66;
+  border: none;
+  border-radius: 12px;
+  color: #cc66ff;
+  padding: 5px 16px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 9px #999;
+}
+
+button:active {
+  background-color: #e6e600;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+label {
+  color: #0099ff;
+  font: 18px Trebuchet MS, sans-serif;
+}
+
 .catElem {
   margin-bottom: 40px;
   visibility: hidden;
@@ -57,6 +81,7 @@ li {
 #list-div {
   /*float: left;*/
   margin-top: 20px;
+  margin-right: 70px;
 }
 
 #cat-list {
@@ -68,25 +93,11 @@ li {
 #display-div {
   /*float: right;*/
   margin-top: 20px;
+  margin-left: 70px;
   width: 300px;
   text-align: center;
 }
 
 #cat-image {
   border: 15px double #ffff66;
-}
-
-#admin-btn {
-  margin-bottom: 30px;
-  background-color: #ffff66;
-  border: none;
-  color: #cc66ff;
-  padding: 5px 16px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.input-slot input{
-  display: inline-block;
 }

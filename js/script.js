@@ -181,18 +181,20 @@ var adminView = {
     });
 
     save.addEventListener('click', function(){
-      //saves input info to ocotopus to model data
+      //creates var for current cat information
       var currentCatInfo = octopus.currentCatInfo();
+      //saves input information from user
       inputName = adminView.adminName.value;
       inputImg = adminView.adminImg.value;
       inputCount = adminView.adminCount.value;
       console.log(inputName, inputImg,inputCount);
+      //saves input info to ocotopus to model data
       octopus.saveCatInfo(inputName, inputImg, inputCount);
 
       //renders cat view area and cat list to update with saved input info
       catListView.render();
       catView.render();
-
+      //rehides the admin form after saving
       adminForm.style.visbility = 'hidden';
     });
 
@@ -200,7 +202,7 @@ var adminView = {
       adminForm.style.visbility = 'hidden';
     });
   }
-}
+};
 
 //initialize it all
 octopus.init();
