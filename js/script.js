@@ -41,6 +41,7 @@ var octopus = {
     //intructs initialize of views
     catListView.init();
     catView.init();
+    adminView.init();
   },
 
 //retrieves the current cat
@@ -64,7 +65,7 @@ var octopus = {
   increaseCounter: function(){
     model.currentCat.count++;
     catView.render();
-  }
+  },
 
   //opens admin view
   currentCatInfo: function() {
@@ -77,12 +78,6 @@ var octopus = {
     model.currentCat.img = inputImg;
     model.currentCat.count = inputCount;
   },
-
-  //hides admin view
-  cancelAdmin: function() {
-
-  },
-
 };
 
 //-----------View
@@ -129,7 +124,7 @@ var catListView = {
     var cats = octopus.getCats();
 
     // empty the cat list- page seems to work without this line of code
-    //this.catListElement.innerHTML = '';
+    this.catListElement.innerHTML = '';
 
     //loop over the cats
     for (i = 0; i < cats.length; i++) {
@@ -153,6 +148,59 @@ var catListView = {
     }
   }
 };
+
+//---------Admin view
+var adminView = {
+  init: function() {
+    //saves DOM elems for the admin view
+    this.adminBtn = document.getElementById('admin-btn');
+    this.adminForm = document.getElementById('admin-form');
+    this.adminName = document.getElementById('admin-name');
+    this.adminImg = document.getElementById('admin-img');
+    this.adminCount = document.getElementById('admin-count');
+    this.adminSave = document.getElementById('admin-save');
+    this.adminCancel = document.getElementById('admin-cancel');
+    // render this view (update the DOM elements with the right values)
+    this.render();
+  },
+
+  render: function() {
+    //set the admin form to hidden
+    this.adminForm.style.visibility = 'hidden';
+    var adminForm = this.adminForm;
+    var save = this.adminSave;
+    var cancel = this.adminCancel;
+
+    //show the main form and update input values to reflect current cat name, img src and count
+    this.adminBtn.addEventListener('click', function() {
+      var currentCatInfo = octopus.currentCatInfo();
+      adminForm.style.visibility = 'visible';
+      adminView.adminName.value = currentCatInfo.name;
+      adminView.adminImg.value = currentCatInfo.img;
+      adminView.adminCount.value = currentCatInfo.count;
+    });
+
+    save.addEventListener('click', function(){
+      //saves input info to ocotopus to model data
+      var currentCatInfo = octopus.currentCatInfo();
+      inputName = adminView.adminName.value;
+      inputImg = adminView.adminImg.value;
+      inputCount = adminView.adminCount.value;
+      console.log(inputName, inputImg,inputCount);
+      octopus.saveCatInfo(inputName, inputImg, inputCount);
+
+      //renders cat view area and cat list to update with saved input info
+      catListView.render();
+      catView.render();
+
+      adminForm.style.visbility = 'hidden';
+    });
+
+    cancel.addEventListener('click', function(){
+      adminForm.style.visbility = 'hidden';
+    });
+  }
+}
 
 //initialize it all
 octopus.init();
