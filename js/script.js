@@ -195,11 +195,11 @@ var adminView = {
       catListView.render();
       catView.render();
       //rehides the admin form after saving
-      adminForm.style.visbility = 'hidden';
+      adminForm.style.visibility = 'hidden';
     });
 
     cancel.addEventListener('click', function(){
-      adminForm.style.visbility = 'hidden';
+      adminForm.style.visibility = 'hidden';
     });
   }
 };
